@@ -13,7 +13,11 @@ $mainColor: #000;  // 文字色
 /*
 Common class for setting width
 ================================================ */
-
+.inner {
+    max-width: 1245px;
+    margin-inline: auto;
+    padding: 15px;
+}
 
 /*
 COMMON
@@ -39,19 +43,18 @@ a {
     text-decoration: none;
 }
 
-.inner {
-    max-width: 1245px;
-    margin-inline: auto;
-    padding: 15px;
+.section-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    line-height: 61px;
 }
-
-
 
 /*-------------------------------------------
 #header
 -------------------------------------------*/
 #header {
-    background-color: rgb(0, 0, 0);
+    background-color: tan;
+    padding: 0 30px;
 }
 
 /*-------------------------------------------
@@ -88,7 +91,6 @@ a {
 #footer {
     background-color: pink;
 }
-
 
 /* レスポンシブ・ブレークポイント600px
 ------------------------------- */
