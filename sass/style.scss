@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 //** VARIABLES ================================= **//
-$mainColor: #000;  // 文字色
+$mainColor: rgb(18, 18, 18);  // 文字色
 
 //** mixin ===================================== **//
 @mixin flexMode($justify) {
@@ -14,9 +14,9 @@ $mainColor: #000;  // 文字色
 Common class for setting width
 ================================================ */
 .inner {
-    max-width: 1245px;
+    max-width: 1238px;
     margin-inline: auto;
-    padding: 15px;
+    padding: 0 15px;
 }
 
 /*
@@ -47,21 +47,148 @@ a {
     font-size: 2.25rem;
     font-weight: 700;
     line-height: 61px;
+    text-align: center;
 }
 
 /*-------------------------------------------
 #header
 -------------------------------------------*/
 #header {
-    background-color: tan;
-    padding: 0 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background-color: #fff;
+    padding: 20px 40px;
+
+    .header-logo {
+        width: 175px;
+        line-height: 1px;
+    }
 }
+
+/*-------------------------------------------
+ハンバーガーメニュー
+-------------------------------------------*/
+.hamburger {
+    position: fixed;
+    top: 30px;
+    right: 45px;
+    width: 30px;
+    height: 20px;
+    z-index: 2;
+    cursor: pointer;
+
+    span {
+        position: absolute;
+        background-color: #000;
+        width: 100%;
+        height: 2px;
+        border-radius: 2px;
+        transition: .4s;
+        &:nth-of-type(1) {
+            top: 0;
+        }
+        &:nth-of-type(2) {
+            top: 10px;
+        }
+        &:nth-of-type(3) {
+            top: 20px;
+        }
+    }
+}
+
+.open span:nth-of-type(1) {
+    background-color: #fff;
+    top: 10px;
+    transform: rotate(-315deg); /* 1本目を反時計回りに45度回転 */
+    z-index: 2;
+}
+.open span:nth-of-type(2) {
+    background-color: #fff;
+    opacity: 0;
+}
+.open span:nth-of-type(3) {
+    background-color: #fff;
+    top: 10px;
+    transform: rotate(315deg); /* 3本目を反時計回りに45度回転 */
+}
+
+/* メニュークリック後の黒色背景 */
+.black-mask {
+    position: fixed;
+    inset: 0;
+    height: 100vh;
+    width: 100vw;
+    visibility: hidden;
+    opacity: 0;
+    background-color: #000;
+    cursor: pointer;
+}
+.open .black-mask {
+    opacity: 0.8;
+    visibility: visible;
+    z-index: 1;
+}
+
+/*-------------------------------------------
+slide
+-------------------------------------------*/
+.slide {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    height: 100vh;
+    background-color: #121212;
+    padding: 25px;
+    z-index: 4;
+    transition: all .5s;
+
+    .slide-top {
+        border-bottom: 1px solid #fff;
+        margin-top: 35px;
+
+        li {
+            border-top: 1px solid #fff;
+            padding: 20px 0;
+        }
+    }
+
+    .slide-bottom {
+        margin-top: 70px;
+
+        li:not(:last-child) {
+            margin-bottom: 10px; //最後のli要素には適用しない
+        }
+    }
+
+    a {
+        display: inline-block; /* 高さの余白を持たせるため */
+        font-size: 0.875rem;
+        line-height: 24px;
+        color: #fff;
+    }
+}
+
+.open .slide {
+    left: 0;
+}
+
+
 
 /*-------------------------------------------
 #video-area
 -------------------------------------------*/
 #video-area {
-    background-color: orange;
+    padding-top: 80px;
+
+    video {
+        width: 100%; /* ビデオの幅を100%に設定 */
+        max-height: 960px;
+        object-fit: cover;
+    }
 }
 
 /*-------------------------------------------
@@ -69,27 +196,121 @@ a {
 -------------------------------------------*/
 #pick-up {
     background-color: gold;
+    margin-top: 105px;
+
+    .carousel {
+        display: flex;
+    }
 }
 
 /*-------------------------------------------
 #feature
 -------------------------------------------*/
 #feature {
-    background-color: tomato;
+    margin-top: 85px;
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+    }
+}
+
+.grid-item {
+    box-shadow: 0 2px 10px 4px rgba(181, 181, 181, 0.5);
+
+    .grid-item-bottom {
+        padding: 30px;
+
+        .grid-title,
+        .grid-date {
+            font-size: 0.75rem;
+            font-weight: 400;
+            line-height: 20px;
+        }
+
+        .grid-text {
+            font-size: 0.875rem;
+            font-weight: 700;
+            line-height: 24px;
+            margin: 25px 0;
+        }
+
+        .grid-date {
+            display: inline-block;
+            width: 100%;
+            text-align: right;
+        }
+    }
 }
 
 /*-------------------------------------------
 #contact
 -------------------------------------------*/
 #contact {
-    background-color: plum;
+    font-size: 0.875rem;
+    line-height: 24px;
+    color: #fff;
+    background-color: #121212;
+    padding: 45px 0 30px 0;
+    margin: 60px 0 0 0;
+
+    .contact-contents {
+        display: flex;
+        justify-content: space-between;
+        padding: 30px 0;
+    }
+}
+
+.contact-contents-left {
+    width: 45%;
+    letter-spacing: 0.5px;
+
+    .contact-text:not(:first-child) {
+        margin-top: 30px;
+    }
+}
+
+.contact-contents-right {
+    width: 45%;
+
+    div {
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+    }
+
+    input[type = "text"],
+    input[type = "email"],
+    textarea {
+        background-color: #fff;
+        width: 100%;
+        padding: 10px;
+    }
+
+    input[type = "submit"] {
+        color: #fff;
+        width: 200px;
+        border: 1px solid #fff;
+        line-height: 50px;
+        &:hover {
+            color: #121212;
+            background-color: #fff;
+        }
+    }
 }
 
 /*-------------------------------------------
 #footer
 -------------------------------------------*/
 #footer {
-    background-color: pink;
+    color: #fff;
+    background-color: #121212;
+    text-align: center;
+    font-size: 0.75rem;
+    padding-bottom: 10px;
 }
 
 /* レスポンシブ・ブレークポイント600px

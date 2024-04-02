@@ -12,7 +12,7 @@
     <!-- リセットCSS -->
         <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css"/>
     <!-- CSS -->
-        <link rel="stylesheet" href="./sass/style.css">
+        <link rel="stylesheet" href="./css/style.css">
         <script src="./js/script.js" defer></script>
     </head>
 
@@ -21,20 +21,34 @@
             <h1 class="header-logo">
                 <a href="#"><img src="images/logo.svg" alt=""></a>
             </h1>
-
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
         </header><!-- /header -->
 
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="slide">
+            <ul class="slide-top">
+                <li><a href="">PICK UP</a></li>
+                <li><a href="">FEATURE</a></li>
+                <li><a href="">CONTACT</a></li>
+            </ul>
+            <ul class="slide-bottom">
+                <li><a href="">X(Twitter)</a></li>
+                <li><a href="">facebook</a></li>
+                <li><a href="">instagram</a></li>
+            </ul>
+        </div><!-- /slide -->
+
+        <!-- 黒色背景※通常は非表示 -->
+        <div class="black-mask"></div>
+
         <div id="video-area">
-            <div class="video">
-                <video muted autoplay loop>
-                    <source src="video/video.mp4" type="video/mp4">
-                </video>
-            </div>
+            <video muted autoplay loop>
+                <source src="video/video.mp4" type="video/mp4">
+            </video>
         </div><!-- /video-area -->
 
         <section id="pick-up">
@@ -60,7 +74,7 @@
                     <div class="grid-item-bottom">
                         <h3 class="grid-title">category</h3>
                         <p class="grid-text">テキストテキストテキストテキストテキストテキストテキストテキスト</p>
-                        <span class="grid-date">XXXX.XX.XX</span>
+                        <p class="grid-date">XXXX.XX.XX</p>
                     </div>
                 </div>
                 <div class="grid-item">
@@ -68,7 +82,7 @@
                     <div class="grid-item-bottom">
                         <h3 class="grid-title">category</h3>
                         <p class="grid-text">テキストテキストテキストテキストテキストテキストテキストテキスト</p>
-                        <span class="grid-date">XXXX.XX.XX</span>
+                        <p class="grid-date">XXXX.XX.XX</p>
                     </div>
                 </div>
                 <div class="grid-item">
@@ -76,7 +90,7 @@
                     <div class="grid-item-bottom">
                         <h3 class="grid-title">category</h3>
                         <p class="grid-text">テキストテキストテキストテキストテキストテキストテキストテキスト</p>
-                        <span class="grid-date">XXXX.XX.XX</span>
+                        <p class="grid-date">XXXX.XX.XX</p>
                     </div>
                 </div>
                 <div class="grid-item">
@@ -84,7 +98,7 @@
                     <div class="grid-item-bottom">
                         <h3 class="grid-title">category</h3>
                         <p class="grid-text">テキストテキストテキストテキストテキストテキストテキストテキスト</p>
-                        <span class="grid-date">XXXX.XX.XX</span>
+                        <p class="grid-date">XXXX.XX.XX</p>
                     </div>
                 </div>
                 <div class="grid-item">
@@ -92,7 +106,7 @@
                     <div class="grid-item-bottom">
                         <h3 class="grid-title">category</h3>
                         <p class="grid-text">テキストテキストテキストテキストテキストテキストテキストテキスト</p>
-                        <span class="grid-date">XXXX.XX.XX</span>
+                        <p class="grid-date">XXXX.XX.XX</p>
                     </div>
                 </div>
                 <div class="grid-item">
@@ -100,7 +114,7 @@
                     <div class="grid-item-bottom">
                         <h3 class="grid-title">category</h3>
                         <p class="grid-text">テキストテキストテキストテキストテキストテキストテキストテキスト</p>
-                        <span class="grid-date">XXXX.XX.XX</span>
+                        <p class="grid-date">XXXX.XX.XX</p>
                     </div>
                 </div>
                 <div class="grid-item">
@@ -108,7 +122,7 @@
                     <div class="grid-item-bottom">
                         <h3 class="grid-title">category</h3>
                         <p class="grid-text">テキストテキストテキストテキストテキストテキストテキストテキスト</p>
-                        <span class="grid-date">XXXX.XX.XX</span>
+                        <p class="grid-date">XXXX.XX.XX</p>
                     </div>
                 </div>
                 <div class="grid-item">
@@ -116,7 +130,7 @@
                     <div class="grid-item-bottom">
                         <h3 class="grid-title">category</h3>
                         <p class="grid-text">テキストテキストテキストテキストテキストテキストテキストテキスト</p>
-                        <span class="grid-date">XXXX.XX.XX</span>
+                        <p class="grid-date">XXXX.XX.XX</p>
                     </div>
                 </div>
                 <div class="grid-item">
@@ -124,7 +138,7 @@
                     <div class="grid-item-bottom">
                         <h3 class="grid-title">category</h3>
                         <p class="grid-text">テキストテキストテキストテキストテキストテキストテキストテキスト</p>
-                        <span class="grid-date">XXXX.XX.XX</span>
+                        <p class="grid-date">XXXX.XX.XX</p>
                     </div>
                 </div>
             </div>
@@ -150,11 +164,11 @@
                         </div>
                         <div class="email">
                             <label for="email">Mail:</label>
-                            <input type="text" id="email" name="your-email">
+                            <input type="email" id="email" name="your-email">
                         </div>
                         <div class="textarea">
                             <label for="message">Message:</label>
-                            <textarea id="message" name="your-massage"></textarea>
+                            <textarea id="message" name="your-message" lang="ja" spellcheck="false"></textarea>
                         </div>
                         <input type="submit" class="button" value="SEND">
                     </form>
