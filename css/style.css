@@ -52,9 +52,9 @@ a {
   top: 0;
   left: 0;
   right: 0;
-  height: 80px;
   background-color: #fff;
   padding: 20px 40px;
+  z-index: 2;
 }
 #header .header-logo {
   width: 175px;
@@ -70,7 +70,7 @@ a {
   right: 45px;
   width: 30px;
   height: 20px;
-  z-index: 2;
+  z-index: 3;
   cursor: pointer;
 }
 .hamburger span {
@@ -95,7 +95,7 @@ a {
   background-color: #fff;
   top: 10px;
   transform: rotate(-315deg); /* 1本目を反時計回りに45度回転 */
-  z-index: 2;
+  z-index: 3;
 }
 
 .open span:nth-of-type(2) {
@@ -124,7 +124,7 @@ a {
 .open .black-mask {
   opacity: 0.8;
   visibility: visible;
-  z-index: 1;
+  z-index: 2;
 }
 
 /*-------------------------------------------
@@ -182,11 +182,17 @@ slide
 #pick-up
 -------------------------------------------*/
 #pick-up {
-  background-color: gold;
   margin-top: 105px;
 }
 #pick-up .carousel {
   display: flex;
+  gap: 60px;
+  overflow: scroll;
+  scrollbar-width: none;
+  padding: 30px 0 15px;
+}
+#pick-up .carousel img {
+  max-width: 415px;
 }
 
 /*-------------------------------------------
@@ -199,10 +205,14 @@ slide
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 25px;
+  margin-top: 30px;
 }
 
 .grid-item {
   box-shadow: 0 2px 10px 4px rgba(181, 181, 181, 0.5);
+}
+.grid-item img {
+  opacity: 0;
 }
 .grid-item .grid-item-bottom {
   padding: 30px;
@@ -290,6 +300,11 @@ slide
 
 /* レスポンシブ・ブレークポイント600px
 ------------------------------- */
+@media screen and (max-width: 600px) {
+  /*-------------------------------------------
+  #header
+  -------------------------------------------*/
+}
 /*-------------------------------------------
 
 -------------------------------------------*/
